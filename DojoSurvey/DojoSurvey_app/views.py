@@ -11,5 +11,7 @@ def result(request):
             'lang': request.POST['language'],
             'comm': request.POST['comment']
         }
-        return render(request, 'result.html', context)
-    return render(request, 'result.html')
+        return redirect('/')
+        #return render(request, 'result.html', context)
+    return redirect('/')
+    #return render(request, 'result.html')
