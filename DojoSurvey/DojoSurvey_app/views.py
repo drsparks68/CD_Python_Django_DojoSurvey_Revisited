@@ -8,7 +8,8 @@ def result(request):
         context = {
             'name': request.POST['name'],
             'loc': request.POST['location'],
-            'lang': request.POST['language']
+            'lang': request.POST['language'],
+            'comm': request.POST['comment']
         }
         return render(request, 'result.html', context)
     return render(request, 'result.html')
