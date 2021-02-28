@@ -3,15 +3,19 @@ from django.shortcuts import render, redirect
 def index(request):
     return render(request, 'form.html')
 
-def result(request):
+def survey(request):
     if request.method == 'POST':
-        context = {
+        request.session['result'] = {
             'name': request.POST['name'],
-            'loc': request.POST['location'],
-            'lang': request.POST['language'],
-            'comm': request.POST['comment']
+            'location': request.POST['location'],
+            'language': request.POST['language'],
+            'comment': request.POST['comment']
         }
-        return redirect('/')
+        return redirect('/result')
         #return render(request, 'result.html', context)
     return redirect('/')
     #return render(request, 'result.html')
+
+def result(request):
+    context = {'result': request.session['result']}
+    return render(request, 'result.html', context)

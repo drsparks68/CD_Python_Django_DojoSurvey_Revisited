@@ -7,8 +7,8 @@
     <title>Dojo Survey</title>
 </head>
 <body>
-    <h1>Welcome o the Dojo. Fill out this form to continue.</h1>
-    <form action="/result" method="post">
+    <h1>Welcome to the Dojo. Fill out this form to continue.</h1>
+    <form action="/survey" method="post">
         {% csrf_token %}
         <p>Your Name: <input name="name" type="text"></p>
         <p>Dojo Location: <input name="location" type="text"></p>
